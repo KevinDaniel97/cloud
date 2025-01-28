@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Display</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .code {
+      background-color: #f0f0f0;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      color: #333;
+      text-align: left;
+      overflow-x: auto;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Command to Generate "Hola Mundo"</h1>
+    <div class="code">
+      echo "&lt;h1&gt;Hola Mundo desde $(hostname -f)&lt;/h1&gt;" &gt; /var/www/html/index.html
+    </div>
+    <p>Copy and paste this command in your terminal to generate the HTML file.</p>
+  </div>
+</body>
+</html>
+
