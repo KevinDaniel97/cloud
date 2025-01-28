@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Code Display</title>
+  <title>Dynamic IP Display</title>
   <style>
     body {
       margin: 0;
@@ -45,12 +45,23 @@
 </head>
 <body>
   <div class="container">
-    <h1>Command to Generate "Hola Mundo"</h1>
-    <div class="code">
-      echo "&lt;h1&gt;Hola Mundo desde $(hostname -f)&lt;/h1&gt;" &gt; /var/www/html/index.html
-    </div>
-    <p>Copy and paste this command in your terminal to generate the HTML file.</p>
+    <h1>Instance Public IP</h1>
+    <p>Your instance's public IP is:</p>
+    <div class="code" id="ip-display">Loading...</div>
   </div>
+
+  <script>
+    // Fetch the public IP dynamically from the instance metadata
+    fetch('http://169.254.169.254/latest/meta-data/public-ipv4')
+      .then(response => response.text())
+      .then(ip => {
+        // Display the IP in the HTML
+        document.getElementById('ip-display').textContent = ip;
+      })
+      .catch(error => {
+        console.error('Error fetching IP:', error);
+        document.getElementById('ip-display').textContent = "Unable to fetch IP.";
+      });
+  </script>
 </body>
 </html>
-
